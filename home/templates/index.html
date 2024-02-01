@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block start%}
+
+  <h1>This is a django Tutorial!!</h1>
+  <br>
+  <table class="table">
+    <tr>
+      <th>Sr. No</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Kadak</th>
+    </tr>
+    <tr>
+    {% for people in peoples %}
+    <td>{{forloop.counter}}</td>
+    <td>{{people.name}}</td>
+    <td>{{people.age}}</td>
+    
+      
+      <td>{% if people.age >= 18 %}
+        Can Vote
+        {% else %}
+        CannotVote
+        {% endif %}
+      </td>
+    </tr>
+    {% endfor %}
+  
+
+  </table>
+
+  {% endblock%}
