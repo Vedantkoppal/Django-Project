@@ -20,11 +20,33 @@
       <input type="file" class="form-control" id="reciepe_image" name="reciepe_image">
 
     </div>
-
+<br>
     <button type="submit" class="btn btn-primary">Add Recipe</button>
   </form>
-  <div class="col-6">
-    <h1>H!</h1>
+  <br>
+  {{receipes}}
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Sr. No</th>
+        <th scope="col">Reciepe Name</th>
+        <th scope="col">Reciepe Description</th>
+        <th scope="col">Image</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for rec in receipes %}
+      <tr>
+        <th scope="row">{{forloop.counter}}</th>
+        <td>{{rec.reciepe_name}}</td>
+        <td>{{rec.reciepe_desc}}</td>
+        <td>{{rec.reciepe_image}}</td>
+      </tr>
+
+      {% endfor %}
+
+    </tbody>
+  </table>
 </div>
 </div>
   
