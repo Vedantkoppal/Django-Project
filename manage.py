@@ -20,3 +20,7 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+from blog.models import Post
+post=Post.objects.get(id=6)
+print(post.get_absolute_url())
