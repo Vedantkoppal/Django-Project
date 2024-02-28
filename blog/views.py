@@ -1,5 +1,5 @@
 from django.shortcuts import render,get_object_or_404
-from django.core.paginator import Paginator
+from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
 
 # Create your views here.
 from .models import Post
@@ -12,10 +12,14 @@ def post_list(request):
 
   try:
     posts=paginator.page(page_number)
-  except:
+ 
+  except EmptyPage:
     #page no out of range: return last page
     posts=paginator.page(paginator.num_pages)
-    
+
+  except PageNotAnInteger:
+    posts=paginator.page(1)
+
   return render(request,'blog/post/list.html',{'posts':posts})
 
 def post_detail(request,year,month,day,post):
