@@ -7,7 +7,7 @@
 
 {% for post in posts  %}
 <h2>
-  <a href="{{post.get_absolute_url}}">{{post.title}}</a>
+  <a href="{{post.get_absolute_url}}">{{post.get_absolute_url}}</a>
 </h2>
 
 <p class ="date">
@@ -17,5 +17,7 @@
 {{post.body|truncatewords:30|linebreaks}}
 
 {% endfor%}
+
+{% include "pagination.html" with page=posts %}
 
 {% endblock %}
